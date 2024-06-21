@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Return Divisors :");
         returnDivisors(36);
         System.out.println("Check Prime :");
-        checkPrime(17);
+        checkPrime(1483);
         System.out.println("Find GCD :");
         findGCD(50 , 10);
     }
@@ -99,13 +99,25 @@ public class Main {
 //    Problem : 6
 //    Given an integer N, check whether it is prime or not.
     public static void checkPrime(int n) {
-
+        int number = n;
+        int totalDivisor = 0;
+        for (int i = 1; i <= n; i++) {
+            if(number % i == 0){
+                totalDivisor++;
+            }
+        }
+        if(totalDivisor == 2){
+            System.out.println("Is n Prime : " + "Yes");
+        }
+        else{
+            System.out.println("Is n Prime : " + "No");
+        }
     }
 
 //    Problem : 7
 //    Given two integers N1 and N2, find their greatest common divisor.
     public static void findGCD(int n1 , int n2) {
-
+        
     }
 
 }
