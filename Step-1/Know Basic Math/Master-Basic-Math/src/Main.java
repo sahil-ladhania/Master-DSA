@@ -117,7 +117,7 @@ public class Main {
 //    Problem : 7
 //    Given two integers N1 and N2, find their greatest common divisor.
     public static void findGCD(int n1 , int n2) {
-        
+
     }
 
 }
