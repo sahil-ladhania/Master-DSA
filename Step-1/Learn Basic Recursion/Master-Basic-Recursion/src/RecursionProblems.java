@@ -1,10 +1,32 @@
+import java.util.Scanner;
+
 public class RecursionProblems {
     public static void main(String[] args) {
-        print1ToN(10);
-        printSomethingNTimes(10);
-        printNTo1(10);
-        sumOfN(10);
-        factorial(10);
+//        Define Scanner Object
+        Scanner scanner = new Scanner(System.in);
+
+//        Take User Input for Different Problems
+        System.out.println("Enter N to Print from 1 to N : ");
+        int N1 = scanner.nextInt();
+        print1ToN(N1);
+
+        System.out.println("Enter N to Print from N to 1 : ");
+        int N2 = scanner.nextInt();
+        printNTo1(N2);
+
+        System.out.println("Enter N to Print GFG N-times : ");
+        int N3 = scanner.nextInt();
+        printSomethingNTimes(N3);
+
+        System.out.println("Enter N to Print Sum till Nth Term : ");
+        int N4 = scanner.nextInt();
+        int answer1 = sumOfN(N4);
+        System.out.println(answer1);
+
+        System.out.println("Enter N to Print all Factorials till Nth Term : ");
+        int N5 = scanner.nextInt();
+        factorial(N5);
+
         reverseArr(10);
         palindrome(10);
         fibonacci(10);
@@ -12,43 +34,84 @@ public class RecursionProblems {
 
 //    Recursion Problems
 
-//    Problem : 1 - Print 1 To N Without Loop.
-    public static int print1ToN(int n) {
-        return n;
+//    Problem : 1 - Print 1 To N Without Loop. -----> Head Recursion
+    public static void print1ToN(int N) {
+        //        Define Base Case
+        if(N == 1){
+            System.out.println(1);
+            return;
+        }
+        else{
+            //            Recursive Call
+            print1ToN(N - 1);
+            //            Processing
+            System.out.println(N);
+        }
     };
 
-//    Problem : 2 - Print GFG n times.
-    public static int printSomethingNTimes(int n) {
-        return n;
+//    Problem : 2 - Print N to 1 without loop. -----> Tail Recursion
+    public static void printNTo1(int N) {
+        //        Define Base Case
+        if(N == 1){
+            System.out.println(1);
+            return;
+        }
+        else{
+            //            Processing
+            System.out.println(N);
+            //            Recursive Call
+            printNTo1(N - 1);
+        }
     };
 
-//    Problem : 3 - Print N to 1 without loop.
-    public static int printNTo1(int n) {
-        return n;
+//    Problem : 3 - Print GFG n times.
+    public static void printSomethingNTimes(int N) {
+        //        Define Base Case
+        if(N == 1){
+            System.out.println("GFG");
+            return;
+        }
+        else{
+            //            Recursive Call
+            printSomethingNTimes(N - 1);
+            //            Processing
+            System.out.println("GFG");
+        };
     };
 
 //    Problem : 4 - Sum of first n terms.
-    public static int sumOfN(int n) {
-        return n;
+    public static int sumOfN(int N) {
+        //        Define Base Case
+        if(N == 1){
+            return 1;
+        }
+        else{
+            //            Recursive Call
+            int sum = sumOfN(N - 1);
+            int totalSum = sum + N;
+            //            Processing
+            return totalSum;
+        }
     };
 
 //    Problem : 5 - Find all factorial numbers less than or equal to n.
-    public static int factorial(int n) {
-        return n;
+    public static void factorial(int N) {
+
     };
 
 //    Problem : 6 - Reverse a given Array.
-    public static int reverseArr(int n) {
-        return n;
+    public static void reverseArr(int N) {
+
     };
 
 //    Problem : 7 - Check if the given String is Palindrome or not.
-    public static int palindrome(int n) {
-        return n;
+    public static void palindrome(int N) {
+
     };
+
 //    Problem : 8 - Print Fibonacci Series up to Nth term.
-    public static int fibonacci(int n) {
-        return n;
+    public static void fibonacci(int N) {
+
     };
 
 }
