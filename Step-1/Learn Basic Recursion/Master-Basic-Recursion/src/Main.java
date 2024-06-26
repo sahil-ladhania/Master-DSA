@@ -14,7 +14,7 @@ public class Main {
         System.out.println("Power of x : " + answer2);
     }
 
-//     Example 1: Factorial Calculation with Base Case
+//     Example 1: Factorial Calculation with Base Case ----> Why in this when I am putting bigger values in n like 90 , 100 , im getting the values in negative or zero.
     public static int factorial(int n) {
         //        Base Case
         if (n == 0) {
@@ -55,3 +55,4 @@ public class Main {
 //    }
 
 }
+
