@@ -1,11 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println("Arrays In-Depth :");
-        //        Syntax of Array
-        //        datatype [] variable_name = new datatype[size];
-        //        Store 5 Roll Numbers -
         int[] roll_num = new int[5];
-        //        Or Directly
         int[] roll_num2 = {1 , 2 , 3 , 4 , 5};
         //        Few Things to Note Down :
         int[] RN; // Declaration of Array ---> RN is getting defined in the Stack.
