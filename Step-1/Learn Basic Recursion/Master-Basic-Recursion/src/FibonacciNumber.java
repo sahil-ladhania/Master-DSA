@@ -13,6 +13,8 @@ public class FibonacciNumber {
         else if(n == 1){
             return 1;
         }
-        return fibonacci(n - 1) + fibonacci(n - 2);
+        int left = fibonacci(n - 1);
+        int right = fibonacci(n - 2);
+        return left + right;
     }
 }
