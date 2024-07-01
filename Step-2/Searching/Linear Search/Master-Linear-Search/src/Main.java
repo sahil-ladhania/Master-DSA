@@ -8,7 +8,7 @@ public class Main {
         int answer2 = linearSearch2(number , target);
         System.out.println(answer2);
     }
-    
+
     //   Returning Index
     public static int linearSearch(int[] arr , int target) {
         if(arr.length == 0){
