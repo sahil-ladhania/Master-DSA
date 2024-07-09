@@ -1,19 +1,37 @@
+import java.util.Arrays;
+
 public class SelectionSortQuestions {
     public static void main(String[] args) {
         int[] arr1 = {5,2,9,1,5,6};
         int answer1 = Question1(arr1);
-        System.out.println(answer1);
-//        Question2();
-//        Question3();
-//        Question4();
+        System.out.println("Answer 1 : " + answer1);
+        int[] arr2 = {8,3,2,7,4,6,5};
+        Question2(arr2);
+        System.out.println("Answer 2 : " + Arrays.toString(arr2));
+        int [] arr3 = {1,4,3,2};
+        Question3(arr3);
+        System.out.println("Answer 3 : " + arr3[1]);
+        int[] arr4 = {10,5,2,7,1,9};
+        Question4(arr4);
+        System.out.println("Answer 4 : " + Arrays.toString(arr4));
+        int[] arr5 = {12,11,15,10,14,13};
 //        Question5();
-        int[] arr6 = {5,4,3,2,100};
+        int[] arr6 = {5,4,3,2,1};
         int answer6 = Question6(arr6);
-        System.out.println(answer6);
+        System.out.println("Answer 6 : " + answer6);
+        int[] arr7 = {20,10,30,50,40};
 //        Question7();
+        int[] arr8 = {2,8,5,3,9};
 //        Question8();
-//        Question9();
-//        Question10();
+        int[] arr9 = {7,6,5,4,3,2,1};
+        Question9(arr9);
+        int n9 = arr9.length;
+        System.out.println("Answer 9 : " + arr9[n9-3]);
+        int[] arr10 = {9,8,7,6,5};
+        Question10(arr10);
+        int n10 = arr10.length;
+        int median = (n10-1)/2;
+        System.out.println("Answer 10 : " + Arrays.toString(arr10) + " , " +  arr10[median]);
     }
 
 //    Given an array [5, 2, 9, 1, 5, 6], find the smallest element using the logic of Selection Sort. ----> Output : 1
@@ -29,18 +47,85 @@ public class SelectionSortQuestions {
     }
 
 //    Sort only the first half of the array [8, 3, 2, 7, 4, 6, 5] using Selection Sort. ----> Output : [2, 3, 8, 7, 4, 6, 5]
+    // Method to Find Minimum Element Index.
+    public static int minIndex2(int[] arr , int currentValueOf_i , int midPoint) {
+        int minIndex = currentValueOf_i;
+        for (int i = currentValueOf_i + 1; i < midPoint; i++) {
+            if(arr[i] < arr[minIndex]){
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+    // Method to Swap Elements.
+    public static void swapElements2(int[] arr , int currentValueOf_i , int minIndex) {
+        int temp = arr[currentValueOf_i];
+        arr[currentValueOf_i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
     public static void Question2(int[] arr2) {
-
+        int n = arr2.length;
+        int midpoint = n/2;
+        for (int i = 0; i < midpoint; i++) {
+            int minIndex = minIndex2(arr2 , i , midpoint);
+            if(minIndex != i){
+                swapElements2(arr2 , i , minIndex);
+            }
+        }
     }
 
 //    Find the second-smallest element in the array [1, 4, 3, 2] using the logic of Selection Sort. ----> Output : 2
+    // Method to Find Minimum Element Index.
+    public static int minIndex3(int[] arr, int currentValueOf_i) {
+        int minIndex = currentValueOf_i;
+        for (int i = currentValueOf_i + 1; i < arr.length; i++) {
+            if (arr[i] < arr[minIndex]) {
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+    // Method to Swap Elements.
+    public static void swapElements3(int[] arr , int currentValueOf_i , int minIndex) {
+        int temp = arr[currentValueOf_i];
+        arr[currentValueOf_i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
     public static void Question3(int[] arr3) {
-
+        int n = arr3.length;
+        for (int i = 0; i < n-1; i++) {
+            int minIndex = minIndex3(arr3 , i);
+            if(minIndex != i){
+                swapElements3(arr3 , i , minIndex);
+            }
+        }
     }
 
 //    Sort the array [10, 5, 2, 7, 1, 9] in descending order using Selection Sort. ----> Output : [10, 9, 7, 5, 2, 1]
+    // Method to Find Maximum Element Index.
+    public static int maximumIndex4(int[] arr , int currentValueOf_i) {
+        int maxIndex = currentValueOf_i;
+        for (int i = currentValueOf_i + 1; i < arr.length; i++) {
+            if(arr[i] > arr[maxIndex]){
+                maxIndex = i;
+            }
+        }
+        return maxIndex;
+    }
+    // Method to Swap Elements.
+    public static void swapElements4(int[] arr , int currentValueOf_i , int maxIndex) {
+        int temp = arr[currentValueOf_i];
+        arr[currentValueOf_i] = arr[maxIndex];
+        arr[maxIndex] = temp;
+    }
     public static void Question4(int[] arr4) {
-
+        int n = arr4.length;
+        for (int i = 0; i < n-1; i++) {
+            int maxIndex = maximumIndex4(arr4 , i);
+            if(maxIndex != i){
+                swapElements4(arr4 , i , maxIndex);
+            }
+        }
     }
 
 //    Sort only the even numbers in the array [12, 11, 15, 10, 14, 13] using Selection Sort. ----> Output : [10, 11, 15, 12, 14, 13]
@@ -67,17 +152,61 @@ public class SelectionSortQuestions {
 
 //    Sort the array [2, 8, 5, 3, 9] using Selection Sort and then reverse the sorted array. ----> Output : [9, 8, 5, 3, 2]
     public static void Question8(int[] arr8) {
-
+        
     }
 
 //    Find the third-largest element in the array [7, 6, 5, 4, 3, 2, 1] using the logic of Selection Sort. ----> Output : 5
+    //        Method to Find the Minimum Element Index.
+    public static int minIndex9(int[] arr , int currentValueOf_i) {
+        int minIndex = currentValueOf_i;
+        for (int i = currentValueOf_i + 1; i < arr.length; i++) {
+            if(arr[i] < arr[minIndex]){
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+    public static void swapElements9(int[] arr , int currentValueOf_i , int minIndex) {
+        int temp = arr[currentValueOf_i];
+        arr[currentValueOf_i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    //                Method to Swap the Elements.
     public static void Question9(int[] arr9) {
-
+        int n = arr9.length;
+        for (int i = 0; i < n-1; i++) {
+            int minIndex = minIndex9(arr9 , i);
+            if(minIndex != i){
+                swapElements9(arr9 , i , minIndex);
+            }
+        }
     }
 
 //    Sort the array [9, 8, 7, 6, 5] using Selection Sort and then find the median of the sorted array. ----> Output : [5, 6, 7, 8, 9] and 7
+    // Method to Find the Minimum Element Index.
+    public static int minIndex10(int[] arr , int currentValueOf_i) {
+        int minIndex = currentValueOf_i;
+        for (int i = currentValueOf_i + 1; i < arr.length; i++) {
+            if(arr[i] < arr[minIndex]){
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+    public static void swapElements10(int[] arr , int currentValueOf_i , int minIndex) {
+        int temp = arr[currentValueOf_i];
+        arr[currentValueOf_i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    // Method to Swap the Elements.
     public static void Question10(int[] arr10) {
-
+        int n = arr10.length;
+        for (int i = 0; i < n-1; i++) {
+            int minIndex = minIndex10(arr10 , i);
+            if(minIndex != i){
+                swapElements10(arr10 , i , minIndex);
+            }
+        }
     }
 
 }
