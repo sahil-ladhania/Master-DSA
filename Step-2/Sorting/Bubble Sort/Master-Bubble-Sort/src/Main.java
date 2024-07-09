@@ -10,26 +10,28 @@ public class Main {
         System.out.println(Arrays.toString(arr));
     }
 
-    // Function to perform Bubble Sort on an array
+    // Bubble Sort Algorithm
     public static void bubbleSort(int[] arr) {
-        boolean swapped;
-        // Loop through the array n-1 times (where n is the length of the array)
-        for (int i = 0; i < arr.length; i++) {
-            swapped = false; // Initialize swapped to false at the start of each outer loop
-            // Inner loop to compare and swap adjacent elements if needed
-            for (int j = 1; j < arr.length - i; j++) {
-                // If the current element is smaller than the previous element, swap them
-                if (arr[j] < arr[j - 1]) {
-                    // Swap the elements
+        int n = arr.length; // Length of the array
+        boolean swapped; // Flag to track if any elements were swapped
+        // Outer loop for passes
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false; // Reset swapped flag for each pass
+            // Inner loop for comparisons and swapping
+            // Last i elements are already sorted, so compare and swap till n-i-1
+            for (int j = 0; j < n - i - 1; j++) {
+                // Compare adjacent elements
+                if (arr[j] > arr[j + 1]) {
+                    // Swap arr[j] and arr[j+1]
                     int temp = arr[j];
-                    arr[j] = arr[j - 1];
-                    arr[j - 1] = temp;
-                    swapped = true; // Set swapped to true to indicate a swap occurred
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true; // Set swapped flag to true
                 }
             }
-            // If no swaps occurred during this pass, the array is already sorted
+            // If no elements were swapped in this pass, array is already sorted
             if (!swapped) {
-                break; // Exit the loop early as no more sorting is needed
+                break; // Exit the outer loop
             }
         }
     }

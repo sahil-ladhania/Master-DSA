@@ -4,9 +4,7 @@ public class selectionSort1D {
     public static void main(String[] args) {
         int[] arr = {5, 4, 3, 2, 1};
         System.out.println("Original Array: " + Arrays.toString(arr));
-
         selectionSort1(arr); // Call selectionSort1 to sort the array
-
         System.out.println("Sorted Array: " + Arrays.toString(arr));
     }
 
