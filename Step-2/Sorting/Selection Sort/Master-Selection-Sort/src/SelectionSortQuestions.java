@@ -15,14 +15,15 @@ public class SelectionSortQuestions {
         Question4(arr4);
         System.out.println("Answer 4 : " + Arrays.toString(arr4));
         int[] arr5 = {12,11,15,10,14,13};
-//        Question5();
+        Question5(arr5);
+        System.out.println("Answer 5 : " + Arrays.toString(arr5));
         int[] arr6 = {5,4,3,2,1};
         int answer6 = Question6(arr6);
         System.out.println("Answer 6 : " + answer6);
-        int[] arr7 = {20,10,30,50,40};
-//        Question7();
         int[] arr8 = {2,8,5,3,9};
-//        Question8();
+        Question8(arr8);
+        reverseArr8(arr8);
+        System.out.println("Answer 8 : " + Arrays.toString(arr8));
         int[] arr9 = {7,6,5,4,3,2,1};
         Question9(arr9);
         int n9 = arr9.length;
@@ -129,8 +130,34 @@ public class SelectionSortQuestions {
     }
 
 //    Sort only the even numbers in the array [12, 11, 15, 10, 14, 13] using Selection Sort. ----> Output : [10, 11, 15, 12, 14, 13]
+    //        Method to Find Minimum Element Index.
+    public static int minIndex5(int[] arr , int currentValueOf_i) {
+        int minIndex = currentValueOf_i;
+        for (int i = currentValueOf_i + 1; i < arr.length; i++) {
+            if(arr[i] % 2 == 0 && arr[i] < arr[minIndex]){
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+    //        Method to Swap Elements.
+    public static void swapElements5(int[] arr , int currentValueOf_i , int minIndex) {
+        if(arr[minIndex] % 2 == 0){
+            int temp = arr[currentValueOf_i];
+            arr[currentValueOf_i] = arr[minIndex];
+            arr[minIndex] = temp;
+        }
+    }
     public static void Question5(int[] arr5) {
-
+        int n = arr5.length;
+        for (int i = 0; i < n-1; i++) {
+            if(arr5[i] % 2 == 0){
+                int minIndex = minIndex5(arr5 , i);
+                if(minIndex != i && arr5[i] % 2 == 0){
+                    swapElements5(arr5 , i , minIndex);
+                }
+            }
+        }
     }
 
 //    Given an array [5, 4, 3, 2, 1], find the maximum element using the logic of Selection Sort. ----> Output : 5
@@ -145,14 +172,41 @@ public class SelectionSortQuestions {
         return arr6[maxIndex];
     }
 
-//    Sort only the elements at odd indices in the array [20, 10, 30, 50, 40] using Selection Sort. ----> Output : [20, 10, 30, 40, 50]
-    public static void Question7(int[] arr7) {
-
-    }
 
 //    Sort the array [2, 8, 5, 3, 9] using Selection Sort and then reverse the sorted array. ----> Output : [9, 8, 5, 3, 2]
+    //        Method to Find the Minimum Element Index.
+    public static int minIndex8(int[] arr , int currentValueOf_i) {
+        int minIndex = currentValueOf_i;
+        for (int i = currentValueOf_i + 1; i < arr.length; i++) {
+            if(arr[i] < arr[minIndex]){
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+    //        Method to Swap Elements.
+    public static void swapElements8(int[] arr , int currentValueOf_i , int minIndex) {
+        int temp = arr[currentValueOf_i];
+        arr[currentValueOf_i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
     public static void Question8(int[] arr8) {
-        
+        int n = arr8.length;
+        for (int i = 0; i < n-1; i++) {
+            int minIndex = minIndex8(arr8 , i);
+            if(minIndex != i){
+                swapElements8(arr8 , i , minIndex);
+            }
+        }
+    }
+    public static void reverseArr8(int[] arr8) {
+        int n = arr8.length;
+        int midpoint = n/2;
+        for (int i = 0; i < midpoint; i++) {
+            int temp = arr8[i];
+            arr8[i] = arr8[n-i-1];
+            arr8[n-i-1] = temp;
+        }
     }
 
 //    Find the third-largest element in the array [7, 6, 5, 4, 3, 2, 1] using the logic of Selection Sort. ----> Output : 5
