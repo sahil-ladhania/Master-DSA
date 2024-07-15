@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class RecursionProblems {
+public class BasicExamples {
     public static void main(String[] args) {
 //        Define Scanner Object
         Scanner scanner = new Scanner(System.in);
@@ -24,7 +24,7 @@ public class RecursionProblems {
         System.out.println(answer1);
     }
 
-//    Recursion Problems
+//    Recursion Examples
 
 //    Problem : 1 - Print 1 To N Without Loop. -----> Head Recursion
     public static void print1ToN(int N) {

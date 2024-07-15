@@ -8,7 +8,15 @@ public class GeneralRecursionProblems {
         int answer3 = powerOfX(2 , 5);
         System.out.println("Answer 3 : " + answer3);
         int answer4 = fibonacciOfN(5);
-        System.out.println("Answer 5 : " + answer4);
+        System.out.println("Answer 4 : " + answer4);
+        int answer5 = sumNTo1(5);
+        System.out.println("Answer 5 : " + answer5);
+        int answer6 = sumOfDigits(12345);
+        System.out.println("Answer 6 : " + answer6);
+        int answer7 = productOfDigits(12345);
+        System.out.println("Answer 7 : " + answer7);
+        int answer8 = reverseNumber(54321);
+        System.out.println("Answer 8 : " + answer8);
     }
 
     // Sum of Natural Numbers: Write a recursive function to find the sum of the first n natural numbers.
@@ -62,6 +70,62 @@ public class GeneralRecursionProblems {
             int sum = left + right;
             return sum;
         }
+    }
+
+    // Sum of n to 1: Write a recursive function to find the sum of n to 1.
+    public static int sumNTo1(int n) {
+        int sum = 1;
+        // Base Case
+        if(n <= 1){
+            return sum;
+        }
+        else{
+            // Recursive Relation
+            return n + sumNTo1(n - 1);
+        }
+    }
+
+    // Sum of Digits: Write a recursive function to find the sum of Digits.
+    public static int sumOfDigits(int n) {
+        // Base Case
+        if(n == 0){
+            return 0;
+        }
+        else{
+            int firstDigit = n % 10;
+            // Recursive Relation
+            return firstDigit + sumOfDigits(n / 10);
+        }
+    }
+
+    // Product of Digits: Write a recursive function to find the product of Digits.
+    public static int productOfDigits(int n) {
+        // Base Case
+        if(n == 0){
+            return 1;
+        }
+        else{
+            int firstDigit = n % 10;
+            // Recursive Relation
+            return firstDigit * productOfDigits(n / 10);
+        }
+    }
+
+    // Reverse a Number: Write a recursive function to Reverse a Number.
+    public static int reversingHelper(int n , int reversed) {
+        // Base Case
+        if(n == 0){
+            return reversed;
+        }
+        else{
+            int lastDigit = n % 10;
+            reversed = reversed * 10 + lastDigit;
+            // Recursive Relation
+            return reversingHelper(n/10 , reversed);
+        }
+    }
+    public static int reverseNumber(int n) {
+        return reversingHelper(n , 0);
     }
 
 }
