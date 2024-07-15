@@ -22,14 +22,6 @@ public class RecursionProblems {
         int N4 = scanner.nextInt();
         int answer1 = sumOfN(N4);
         System.out.println(answer1);
-
-        System.out.println("Enter N to Print all Factorials till Nth Term : ");
-        int N5 = scanner.nextInt();
-        factorial(N5);
-
-        reverseArr(10);
-        palindrome(10);
-        fibonacci(10);
     }
 
 //    Recursion Problems
@@ -92,26 +84,6 @@ public class RecursionProblems {
             //            Processing
             return totalSum;
         }
-    };
-
-//    Problem : 5 - Find all factorial numbers less than or equal to n.
-    public static void factorial(int N) {
-
-    };
-
-//    Problem : 6 - Reverse a given Array.
-    public static void reverseArr(int N) {
-
-    };
-
-//    Problem : 7 - Check if the given String is Palindrome or not.
-    public static void palindrome(int N) {
-
-    };
-
-//    Problem : 8 - Print Fibonacci Series up to Nth term.
-    public static void fibonacci(int N) {
-
     };
 
 }
