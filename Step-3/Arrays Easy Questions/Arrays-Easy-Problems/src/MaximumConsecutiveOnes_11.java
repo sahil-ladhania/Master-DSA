@@ -24,25 +24,7 @@ public class MaximumConsecutiveOnes_11 {
 
     // Optimal Approach ---> TC :
     public static int optimalMaxConsecutive1(int[] arr) {
-        int n = arr.length;
-        int count = 0;
-        int prevCount = 0;
-        for (int i = 0; i < n; i++) {
-            if(arr[i] == 1){
-                count++;
-            }
-            else{
-                prevCount = count;
-                count = 0;
-                continue;
-            }
-        }
-        if(prevCount > count){
-            return prevCount;
-        }
-        else{
-            return count;
-        }
+        return 1;
     }
 
 }

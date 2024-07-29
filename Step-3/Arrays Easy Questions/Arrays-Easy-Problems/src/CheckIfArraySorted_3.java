@@ -10,45 +10,18 @@ public class CheckIfArraySorted_3 {
         System.out.println("Optimal Answer : " + optimalAnswer);
     }
 
-    // Brute Force Approach -----> TC : O(n)
+    // Brute Force Approach -----> TC :
     public static boolean bruteForceCheckSorted(int[] arr) {
-        int n = arr.length;
-        for (int i = 1; i < n; i++) {
-            if(arr[i] <  arr[i-1]){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
         return true;
     }
 
-    // Better Approach -----> TC : O(n)
+    // Better Approach -----> TC :
     public static boolean betterCheckSorted(int[] arr) {
-        int n = arr.length;
-        for (int i = 1; i < n; i++) {
-            if(arr[i] <  arr[i-1]){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
         return true;
     }
 
-    // Optimal Approach ---> TC : O(n)
-    public static boolean optimalCheckSorted(int[] arr) {
-        int n = arr.length;
-        for (int i = 1; i < n; i++) {
-            if(arr[i] <  arr[i-1]){
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
+    // Optimal Approach ---> TC :
+    public static boolean optimalCheckSorted(int[] arr){
         return true;
     }
 

@@ -14,49 +14,17 @@ public class MoveZeroesToEnd_7 {
 
     // Brute Force Approach -----> TC : O(3n)
     public static void bruteForceMoveZeroes(int[] arr) {
-        int n = arr.length;
-        int[] temp = new int[n];
-        int j = 0;
-        // Copy in temp array
-        for (int i = 0; i < n; i++) {
-            if(arr[i] != 0){
-                temp[j] = arr[i];
-                j++;
-            }
-        }
-        while (j < n){
-            temp[j] = 0;
-            j++;
-        }
-        for (int i = 0; i < n; i++) {
-            arr[i] = temp[i];
-        }
+
     }
 
     // Better Approach -----> TC : O(n)
     public static void betterMoveZeroes(int[] arr) {
-        int n = arr.length;
-        int[] temp = new int[n];
-        int j = 0;
-        // Copy in temp array
-        for (int i = 0; i < n; i++) {
-            if(arr[i] != 0){
-                temp[j] = arr[i];
-                j++;
-            }
-        }
-        while (j < n){
-            temp[j] = 0;
-            j++;
-        }
-        for (int i = 0; i < n; i++) {
-            arr[i] = temp[i];
-        }
+
     }
 
-    // Optimal Approach ---> TC : O(n)
+    // Optimal Approach ---> TC :
     public static void optimalMoveZeroes(int[] arr) {
-        // Use 2 Pointer to Solve it
+
     }
 
 }

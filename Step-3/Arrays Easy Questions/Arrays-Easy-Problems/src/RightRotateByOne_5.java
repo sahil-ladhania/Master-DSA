@@ -11,34 +11,19 @@ public class RightRotateByOne_5 {
         System.out.println("Optimal Answer : " + Arrays.toString(arr));
     }
 
-    // Brute Force Approach -----> TC : O(n)
+    // Brute Force Approach -----> TC :
     public static void bruteForceRightRotateBy1(int[] arr) {
-        int n = arr.length;
-        int lastElement = arr[n-1];
-        for (int i = n-1; i > 0; i--) {
-            arr[i] = arr[i-1];
-        }
-        arr[0] = lastElement;
+
     }
 
-    // Better Approach -----> TC : O(n)
+    // Better Approach -----> TC :
     public static void betterRightRotateBy1(int[] arr) {
-        int n = arr.length;
-        int lastElement = arr[n-1];
-        for (int i = n-1; i > 0; i--) {
-            arr[i] = arr[i-1];
-        }
-        arr[0] = lastElement;
+
     }
 
-    // Optimal Approach ---> TC : O(n)
+    // Optimal Approach ---> TC :
     public static void optimalRightRotateBy1(int[] arr) {
-        int n = arr.length;
-        int lastElement = arr[n-1];
-        for (int i = n-1; i > 0; i--) {
-            arr[i] = arr[i-1];
-        }
-        arr[0] = lastElement;
+
     }
 
 }

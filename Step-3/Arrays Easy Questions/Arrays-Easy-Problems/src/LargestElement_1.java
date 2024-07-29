@@ -12,29 +12,15 @@ public class LargestElement_1 {
         System.out.println("Optimal Answer : " + optimalAnswer);
     }
 
-    // Brute Force Approach -----> TC : O(n^2)
+    // Brute Force Approach -----> TC :
     public static int minIndex(int[] arr , int currentIndex) {
-        int minIndex = currentIndex;
-        for (int i = currentIndex + 1; i < arr.length; i++) {
-            if(arr[minIndex] > arr[i]){
-                minIndex = i;
-            }
-        }
-        return minIndex;
+        return 1;
     }
     public static void swapElements(int[] arr , int minIndex , int currentIndex) {
-        int temp = arr[minIndex];
-        arr[minIndex] = arr[currentIndex];
-        arr[currentIndex] = temp;
+
     }
     public static void largestElementBruteForce(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n-1; i++) {
-            int minIndex = minIndex(arr , i);
-            if(minIndex != i){
-                swapElements(arr , minIndex , i);
-            }
-        }
+
     }
 
     // Better Approach
@@ -43,16 +29,9 @@ public class LargestElement_1 {
         return str;
     }
 
-    // Optimal Approach ---> TC : O(n)
+    // Optimal Approach ---> TC :
     public static int largestElementOptimal(int[] arr) {
-        int n = arr.length;
-        int largestElement = arr[0];
-        for (int i = 0; i < n; i++) {
-            if(largestElement < arr[i]){
-                largestElement = arr[i];
-            }
-        }
-        return largestElement;
+        return 1;
     }
 
 }

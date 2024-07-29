@@ -13,7 +13,7 @@ public class LinearSearch_8 {
 
     // Brute Force Approach -----> TC : O(n)
     public static String bruteForceLinearSearch(int[] arr , int target) {
-        String str2 = "There is no Optimal Solution for this Problem.";
+        String str2 = "There is no Brute Force Solution for this Problem.";
         System.out.println(str2);
         return str2;
     }
@@ -27,12 +27,6 @@ public class LinearSearch_8 {
 
     // Optimal Approach ---> TC : O(n)
     public static boolean optimalForceLinearSearch(int[] arr , int target) {
-        int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            if(arr[i] == target){
-                return true;
-            }
-        }
-        return false;
+        return true;
     }
 }

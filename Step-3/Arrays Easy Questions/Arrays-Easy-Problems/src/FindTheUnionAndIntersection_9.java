@@ -4,18 +4,17 @@ public class FindTheUnionAndIntersection_9 {
     public static void main(String[] args) {
         int[] arr1 = {1,2,2,3,3,3,4,5};
         int[] arr2 = {1,1,1,2,3,3,4,5,6};
-        String bruteForceAnswer = bruteForceUnion(arr1 , arr2);
+        int bruteForceAnswer = bruteForceUnion(arr1 , arr2);
         System.out.println("Brute Force Answer : " + bruteForceAnswer);
         String betterAnswer = betterUnion(arr1 , arr2);
         System.out.println("Better Answer : " + betterAnswer);
-        ArrayList<Integer> optimalAnswer = optimalUnion(arr1 , arr2);
-        System.out.println("Optimal Answer : " + optimalAnswer);
+//        ArrayList<Integer> optimalAnswer = optimalUnion(arr1 , arr2);
+//        System.out.println("Optimal Answer : " + optimalAnswer);
     }
 
     // Brute Force Approach -----> TC :
-    public static String bruteForceUnion(int[] arr1 , int[] arr2) {
-        String str = "The brute force of this question was solved using Sets.";
-        return str;
+    public static int bruteForceUnion(int[] arr1 , int[] arr2) {
+        return 1;
     }
 
     // Better Approach ---> TC : O(n)
@@ -25,16 +24,8 @@ public class FindTheUnionAndIntersection_9 {
     }
 
     // Optimal Approach ---> TC :
-    public static ArrayList<Integer> optimalUnion(int[] arr1 , int[] arr2) {
-        int i = 0;
-        int j = 0;
-        ArrayList <Integer> union = new ArrayList<>();
-        while ((i < arr1.length) || j < arr2.length){
-            if(arr1[i] < arr2[j] && arr1[i] != union.get(j)){
-                union.set(i , arr1[i]);
-            }
-        }
-        return union;
-    }
+//    public static ArrayList<Integer> optimalUnion(int[] arr1 , int[] arr2) {
+//        return 1;
+//    }
 
 }

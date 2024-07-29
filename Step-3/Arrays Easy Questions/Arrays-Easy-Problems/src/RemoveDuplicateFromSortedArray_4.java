@@ -12,52 +12,19 @@ public class RemoveDuplicateFromSortedArray_4 {
         System.out.println("Optimal Answer : " + optimalAnswer);
     }
 
-    // Brute Force Approach -----> TC : O(n)
+    // Brute Force Approach -----> TC :
     public static int bruteForceRemoveDuplicateFromSorted(int[] arr) {
-        // Return Length of Distinct Array
-        int n = arr.length;
-        int length = 1;
-        if(n < 2){
-            return length;
-        }
-        for (int i = 1; i < n; i++) {
-            if(arr[i] != arr[i - 1]){
-                length++;
-            }
-        }
-        return length;
+        return 1;
     }
 
-    // Better Approach -----> TC : O(n)
+    // Better Approach -----> TC :
     public static int betterRemoveDuplicateFromSorted(int[] arr) {
-        // Return Length of Distinct Array
-        int n = arr.length;
-        int length = 1;
-        if(n < 2){
-            return length;
-        }
-        for (int i = 1; i < n; i++) {
-            if(arr[i] != arr[i - 1]){
-                length++;
-            }
-        }
-        return length;
+        return 1;
     }
 
-    // Optimal Approach ---> TC : O(n)
+    // Optimal Approach ---> TC :
     public static int optimalRemoveDuplicateFromSorted(int[] arr) {
-        // Return Length of Distinct Array
-        int n = arr.length;
-        int length = 1;
-        if(n < 2){
-            return length;
-        }
-        for (int i = 1; i < n; i++) {
-            if(arr[i] != arr[i - 1]){
-                length++;
-            }
-        }
-        return length;
+        return 1;
     }
 
 }
