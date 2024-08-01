@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 
 public class TwoPointers {
     public static void main(String[] args) {
@@ -41,7 +40,6 @@ public class TwoPointers {
         System.out.println("Answer 10 : " + answer10); // 4 ([1,2,3,4,5,6,7])
     }
 
-// Basic Understanding :-
     // Given an array of integers arr, find if there are two numbers that add up to a specific target sum.
     public static boolean findSumPair(int[] arr, int target) {
         int n = arr.length;
@@ -74,28 +72,6 @@ public class TwoPointers {
             start++;
             end--;
         }
-    }
-
-// Intermediate Complexity :-
-    // Given an array of integers arr, move all zeroes to the end while maintaining the relative order of the non-zero elements.
-    public static void moveZeroes(int[] arr) {
-
-    }
-
-    // Given an array of integers arr and a number k, find a pair of elements in the array whose difference is k.
-    public static boolean findPairWithDifference(int[] arr, int k) {
-        return false;
-    }
-
-    // Given an array of integers arr and an integer val, remove all instances of val in-place and return the new length.
-    public static int removeElement(int[] arr, int val) {
-        return 0;
-    }
-
-// Advanced Understanding :-
-    // Given a sorted array of integers arr, return a new array containing the squares of each number sorted in non-decreasing order.
-    public static int[] squareAndSort(int[] arr) {
-        return new int[] {};
     }
 
     // Given two sorted arrays arr1 and arr2, merge them into a single sorted array.
@@ -141,11 +117,6 @@ public class TwoPointers {
         return true;
     }
 
-    // Given a sorted array of integers arr, remove duplicates in-place such that each element appears only once and return the new length.
-    public static int removeDuplicates(int[] arr) {
-        return 0;
-    }
-
     // Given an array of integers arr, find the middle element of the array.
     public static int findMiddleElement(int[] arr) {
         int n = arr.length;
@@ -159,6 +130,31 @@ public class TwoPointers {
             return arr[start - 1];
         }
         return arr[start];
+    }
+
+    // Given an array of integers arr, move all zeroes to the end while maintaining the relative order of the non-zero elements.
+    public static void moveZeroes(int[] arr) {
+
+    }
+
+    // Given an array of integers arr and a number k, find a pair of elements in the array whose difference is k.
+    public static boolean findPairWithDifference(int[] arr, int k) {
+        return false;
+    }
+
+    // Given an array of integers arr and an integer val, remove all instances of val in-place and return the new length.
+    public static int removeElement(int[] arr, int val) {
+        return 0;
+    }
+
+    // Given a sorted array of integers arr, return a new array containing the squares of each number sorted in non-decreasing order.
+    public static int[] squareAndSort(int[] arr) {
+        return new int[] {};
+    }
+
+    // Given a sorted array of integers arr, remove duplicates in-place such that each element appears only once and return the new length.
+    public static int removeDuplicates(int[] arr) {
+        return 0;
     }
 
 }
