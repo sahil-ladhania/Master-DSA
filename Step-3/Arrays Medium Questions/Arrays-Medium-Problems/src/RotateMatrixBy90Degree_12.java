@@ -17,8 +17,8 @@ public class RotateMatrixBy90Degree_12 {
                 {4,5,6},
                 {7,8,9}
         };
-        bruteForceRotateMatrixBY90Degree(arr1);
-        System.out.println("Brute Force Answer : " + Arrays.deepToString(arr1));
+        int[][] bruteForceAnswer = bruteForceRotateMatrixBY90Degree(arr1);
+        System.out.println("Brute Force Answer : " + Arrays.deepToString(bruteForceAnswer));
         String betterSolution = betterRotateMatrixBY90Degree(arr2);
         System.out.println("Better Answer : " + betterSolution);
         optimalRotateMatrixBY90Degree(arr3);
@@ -26,12 +26,19 @@ public class RotateMatrixBy90Degree_12 {
     }
 
     // Brute Force Approach
-    public static void bruteForceRotateMatrixBY90Degree(int[][] arr) {
-
+    public static int[][] bruteForceRotateMatrixBY90Degree(int[][] arr) {
+        int[][] ansArr = new int[3][3];
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                ansArr[j][n-1-i] = arr[i][j];
+            }
+        }
+        return ansArr;
     }
     /*
-    TC : O() --->
-    SC : O() --->
+    TC : O(n2) --->  Because it iterates through all elements to create a new matrix of the same size.
+    SC : O(n2) --->  Because it iterates through all elements to create a new matrix of the same size.
     */
 
     // Better Approach
@@ -39,17 +46,28 @@ public class RotateMatrixBy90Degree_12 {
         String str = "There is no better solution for this Problem.";
         return str;
     }
-    /*
-    TC : O() --->
-    SC : O() --->
-    */
 
     // Optimal Approach
     public static void optimalRotateMatrixBY90Degree(int[][] arr) {
-
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr[0].length; j++) {
+                int temp = 0;
+                temp = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = temp;
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length / 2; j++) {
+                int temp = 0;
+                temp = arr[i][j];
+                arr[i][j] = arr[i][arr.length - 1 - j];
+                arr[i][arr.length - 1 - j] = temp;
+            }
+        }
     }
     /*
-    TC : O() --->
-    SC : O() --->
+    TC : O(2n^2) ---> Because it performs two O(n^2) operations (transposition and reversal) directly on the original matrix without using extra space.
+    SC : O(1) ---> Because it performs two O(n^2) operations (transposition and reversal) directly on the original matrix without using extra space.
     */
 }
