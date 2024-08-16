@@ -11,11 +11,29 @@ public class SingleElementInSortedArray_8 {
 
     // Brute Force Approach
     public static int bruteForceSingleElementInSortedArray(int[] arr) {
+        int n = arr.length;
+        int count = 1;
+        for (int i = 1; i < n; i++) {
+            int element = arr[i];
+            int prevElement = arr[i - 1];
+            if (element == prevElement) {
+                count++;
+            }
+            else {
+                if (count == 1) {
+                    return prevElement;
+                }
+                count = 1;
+            }
+        }
+        if (count == 1) {
+            return arr[n - 1];
+        }
         return -1;
     }
     /*
-    TC :
-    SC :
+    TC : O(n)
+    SC : O(1)
     */
 
     // Better Approach
@@ -26,7 +44,7 @@ public class SingleElementInSortedArray_8 {
 
     // Optimal Approach
     public static int optimalSingleElementInSortedArray(int[] arr) {
-        return -1;
+       return -1;
     }
     /*
     TC :
