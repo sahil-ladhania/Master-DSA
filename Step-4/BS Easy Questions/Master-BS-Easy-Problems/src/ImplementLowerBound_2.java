@@ -14,11 +14,6 @@ public class ImplementLowerBound_2 {
     // Brute Force Approach
     public static int bruteForceLowerBound(int[] arr , int x) {
         int n = arr.length;
-        for (int i = 0; i < n; i++) {
-            if(arr[i] >= x){
-                return i;
-            }
-        }
         return n;
     }
     /*
@@ -35,20 +30,7 @@ public class ImplementLowerBound_2 {
     // Optimal Approach
     public static int optimalLowerBound(int[] arr , int x) {
         int n = arr.length;
-        int low = 0;
-        int high = n-1;
-        int ans = n;
-        while (low <= high){
-            int mid = (low + high) / 2;
-            if(arr[mid] >= x){
-                ans = mid;
-                high = mid - 1;
-            }
-            else{
-                low = mid + 1;
-            }
-        }
-        return ans;
+        return n;
     }
     /*
     TC : O(log n) ---> Binary search works by dividing the array into halves in each iteration. This results in logarithmic time complexity, as each step reduces the search space by half. Specifically, after log n steps, the search space reduces to a single element.

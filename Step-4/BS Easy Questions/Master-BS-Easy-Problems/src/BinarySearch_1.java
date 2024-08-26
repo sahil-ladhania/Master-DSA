@@ -54,4 +54,4 @@ public class BinarySearch_1 {
     SC : O(log n) ---> Because of the additional space required by the call stack. In the worst case, the recursion depth can go up to log n, which contributes to the space complexity.
     */
 
-} 
+}
