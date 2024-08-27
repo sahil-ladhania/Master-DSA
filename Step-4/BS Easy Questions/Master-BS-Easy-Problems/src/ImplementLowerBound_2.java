@@ -3,17 +3,22 @@ import java.util.Arrays;
 public class ImplementLowerBound_2 {
     public static void main(String[] args) {
         int[] arr = {3,5,8,15,19};
-        int bruteForceAnswer = bruteForceLowerBound(arr , 20);
+        int bruteForceAnswer = bruteForceLowerBound(arr , 9);
         System.out.println("Brute Force Answer : " + bruteForceAnswer);
         String betterAnswer = betterLowerBound(arr , 20);
         System.out.println("Better Answer : " + betterAnswer);
-        int optimalAnswer = optimalLowerBound(arr , 20);
+        int optimalAnswer = optimalLowerBound(arr , 9);
         System.out.println("Optimal Answer : " + optimalAnswer);
     }
 
     // Brute Force Approach
     public static int bruteForceLowerBound(int[] arr , int x) {
         int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            if(arr[i] >= x){
+                return i;
+            }
+        }
         return n;
     }
     /*
@@ -30,7 +35,20 @@ public class ImplementLowerBound_2 {
     // Optimal Approach
     public static int optimalLowerBound(int[] arr , int x) {
         int n = arr.length;
-        return n;
+        int start = 0;
+        int end = n-1;
+        int ans = n;
+        while (start <= end){
+            int mid = start + (end - start) / 2;
+            if(arr[mid] >= x){
+                ans = mid;
+                end = mid - 1;
+            }
+            else{
+                start = mid + 1;
+            }
+        }
+        return ans;
     }
     /*
     TC : O(log n) ---> Binary search works by dividing the array into halves in each iteration. This results in logarithmic time complexity, as each step reduces the search space by half. Specifically, after log n steps, the search space reduces to a single element.
