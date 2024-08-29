@@ -1,4 +1,4 @@
-public class NumberOfOccurences_6 {
+public class CountTotalOccurences_6 {
     public static void main(String[] args) {
         int[] arr = {2,2,3,3,3,3,4};
         int bruteForceAnswer = bruteForceNumberOfOccurences(arr , 3);
@@ -13,8 +13,7 @@ public class NumberOfOccurences_6 {
         int n = arr.length;
         int occurences = 0;
         for (int i = 0; i < n; i++) {
-            int element = arr[i];
-            if(element == target){
+            if(arr[i] == target){
                 occurences++;
             }
         }
@@ -31,48 +30,36 @@ public class NumberOfOccurences_6 {
     }
 
     public static int optimalNumberOfOccurences(int[] arr, int target) {
+        int leftCount = countLeftSideOccurences(arr , target);
+        int rightCount = countRightSideOccurences(arr , target);
+        int totalOccurences = leftCount + rightCount;
+        return totalOccurences;
+    }
+
+    // First Occ
+    public static int countLeftSideOccurences(int[] arr , int target) {
         int n = arr.length;
-        int first = firstOccurrence(arr, n, target);
-        if (first == -1) {
-            return 0;
+        int leftCount = 1;
+        int start = 0;
+        int end = n-1;
+        while (start <= end){
+            int mid = start + (end - start) / 2;
         }
-        int last = lastOccurrence(arr, n, target);
-        return last - first + 1;
+        return leftCount;
     }
-    private static int firstOccurrence(int[] arr, int n, int x) {
-        int low = 0;
-        int high = n - 1;
-        int result = -1;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (arr[mid] == x) {
-                result = mid;
-                high = mid - 1;
-            } else if (arr[mid] > x) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
+
+    // Last Occ
+    public static int countRightSideOccurences(int[] arr , int target) {
+        int n = arr.length;
+        int rightCount = 1;
+        int start = 0;
+        int end = n-1;
+        while (start <= end){
+            int mid = start + (end - start) / 2;
         }
-        return result;
+        return rightCount;
     }
-    private static int lastOccurrence(int[] arr, int n, int x) {
-        int low = 0;
-        int high = n - 1;
-        int result = -1;
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            if (arr[mid] == x) {
-                result = mid;
-                low = mid + 1;
-            } else if (arr[mid] > x) {
-                high = mid - 1;
-            } else {
-                low = mid + 1;
-            }
-        }
-        return result;
-    }
+
     /*
     TC : O(log n) ---> Uses binary search to efficiently find the first and last occurrences.
     SC : O(1) ---> Uses a constant amount of extra space beyond the input.
