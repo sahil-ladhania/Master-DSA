@@ -12,28 +12,32 @@ public class SingleElementInSortedArray_8 {
     // Brute Force Approach
     public static int bruteForceSingleElementInSortedArray(int[] arr) {
         int n = arr.length;
-        int count = 1;
-        for (int i = 1; i < n; i++) {
-            int element = arr[i];
-            int prevElement = arr[i - 1];
-            if (element == prevElement) {
-                count++;
-            }
-            else {
-                if (count == 1) {
-                    return prevElement;
+        int singleElement = -1;
+        for (int i = 0; i < n; i++) {
+            if(i == 0){
+                if(arr[i] != arr[i+1]){
+                    singleElement = arr[i];
+                    return singleElement;
                 }
-                count = 1;
+            }
+            else if (i == n-1) {
+                if(arr[n-1] != arr[n-2]){
+                    singleElement = arr[i];
+                    return singleElement;
+                }
+            }
+            else{
+                if((arr[i] != arr[i+1]) && (arr[i] != arr[i-1])){
+                    singleElement = arr[i];
+                    return singleElement;
+                }
             }
         }
-        if (count == 1) {
-            return arr[n - 1];
-        }
-        return -1;
+        return singleElement;
     }
     /*
-    TC : O(n)
-    SC : O(1)
+    TC : O(n) ---> It iterates through the entire array to find the single element.
+    SC : O(1) ---> It uses a constant amount of extra space.
     */
 
     // Better Approach
@@ -44,11 +48,26 @@ public class SingleElementInSortedArray_8 {
 
     // Optimal Approach
     public static int optimalSingleElementInSortedArray(int[] arr) {
-       return -1;
+        int n = arr.length;
+        int start = 0;
+        int end = n - 1;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if ((mid == 0 || arr[mid] != arr[mid - 1]) && (mid == n - 1 || arr[mid] != arr[mid + 1])) {
+                return arr[mid];
+            }
+            if ((mid % 2 == 0 && arr[mid] == arr[mid + 1]) || (mid % 2 != 0 && arr[mid] == arr[mid - 1])) {
+                start = mid + 1;
+            }
+            else {
+                end = mid - 1;
+            }
+        }
+        return -1;
     }
     /*
-    TC :
-    SC :
+    TC : O(log n) --->  It uses binary search, reducing the search space by half in each step.
+    SC : O(1) --->  It uses a constant amount of extra space.
     */
 
 }

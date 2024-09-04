@@ -10,11 +10,20 @@ public class FindKthRotation_7 {
     }
 
     public static int bruteForceFindKthRotation(int[] arr) {
-        return -1;
+        int n = arr.length;
+        int min = Integer.MAX_VALUE;
+        int ans = -1;
+        for (int i = 0; i < n; i++) {
+            if(arr[i] < min){
+                min = arr[i];
+                ans = i;
+            }
+        }
+        return ans;
     }
     /*
-    TC : O(n) --->
-    SC : O(1) --->
+    TC : O(n) ---> Because it iterates through the entire array to find the minimum element.
+    SC : O(1) ---> Because it uses only a few extra variables, regardless of input size.
     */
 
     public static String betterFindKthRotation(int[] arr) {
@@ -23,11 +32,28 @@ public class FindKthRotation_7 {
     }
 
     public static int optimalFindKthRotation(int[] arr) {
-        return -1;
+        int n = arr.length;
+        int start = 0;
+        int end = n-1;
+        int ans = -1;
+        while (start <= end){
+            int mid = start + (end - start) / 2;
+            if (arr[start] <= arr[end]) {
+                ans = start;
+                break;
+            }
+            else if (arr[start] <= arr[mid]) {
+                start = mid + 1;
+            }
+            else{
+                end = mid;
+            }
+        }
+        return ans;
     }
     /*
-    TC : O(log n) --->
-    SC : O(1) --->
+    TC : O(log n) ---> Because it uses binary search to find the minimum element efficiently.
+    SC : O(1) ---> Because it only uses a fixed amount of extra space.
     */
 
 }
